@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://pixijs.download/v8.2.5/pixi.js"></script>
+        <script src="https://github.com/pixijs/gif/releases/download/v3.0.1/pixi-gif.js"></script>
         <title>Moving Herta GIFs</title>
         <style>
             body {
@@ -18,52 +20,6 @@
         </style>
     </head>
     <body>
-        <script>
-            const numGifs = 20;
-
-            function createHerta() {
-                const herta = document.createElement("img");
-                herta.src = "herta.gif";
-                herta.className = "herta";
-
-                const size = Math.random() * 150 + 50;
-                herta.style.width = `${size}px`;
-
-                const startY = Math.random() * (window.innerHeight - size);
-                const startX = window.innerWidth + Math.random() * window.innerWidth
-
-                herta.style.top = `${startY}px`;
-                herta.style.left = `${startX}px`;
-
-                document.body.appendChild(herta);
-
-                return herta;
-            }
-
-            function moveHerta(herta) {
-                const speed = Math.random() * 2 + 1; // Random speed between 1 and 3
-
-                function animate() {
-                    let position = parseFloat(herta.style.left);
-                    position -= speed;
-                    herta.style.left = `${position}px`;
-
-                    if (position > -parseFloat(herta.style.width)) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        herta.remove();
-                        const newHerta = createHerta();
-                        moveHerta(newHerta);
-                    }
-                }
-
-                animate();
-            }
-
-            for (let i = 0; i < numGifs; i++) {
-                const herta = createHerta();
-                moveHerta(herta);
-            }
-        </script>
+        <script src="index.js" type="module"></script>
     </body>
 </html>
