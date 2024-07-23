@@ -1,4 +1,4 @@
-const numGifs = 25;
+const numHerta = 25;
 
 const app = new PIXI.Application();
 await app.init({
@@ -12,16 +12,16 @@ document.body.appendChild(app.canvas);
 const image = await PIXI.Assets.load("herta.gif");
 
 function createHerta() {
-    let herta = image.clone();
+    const herta = image.clone();
 
-    const size = Math.random() * 150 + 50;
-    herta.width = size;
-    herta.height = size;
+    const hertaSize = Math.random() * 150 + 50;
+    herta.width = hertaSize;
+    herta.height = hertaSize;
 
     herta.x = app.screen.width + Math.random() * app.screen.width;
-    herta.y = Math.random() * (app.screen.height - size);
+    herta.y = Math.random() * (app.screen.height - hertaSize);
 
-    herta.speed = ((200 - size) / 150) * 2 + 1;
+    herta.speed = ((200 - hertaSize) / 150) * 2 + 1;
 
     app.stage.addChild(herta);
 }
@@ -36,7 +36,7 @@ function gameLoop(ticker) {
     });
 }
 
-for (let i = 0; i < numGifs; i++) {
+for (let i = 0; i < numHerta; i++) {
     createHerta();
 }
 
